@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --mode development --content-base docs/ --open --hot"
   },
   "author": "",
   "license": "ISC",
@@ -12,5 +12,10 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
+  },
+  "dependencies": {
+    "blackjack-dealer-logic": "^1.1.4",
+    "global": "^4.4.0",
+    "yarn": "^1.19.1"
   }
 }
