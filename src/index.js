@@ -1,28 +1,33 @@
-const { Table, User, Dealer } = require("blackjack-dealer-logic");
-import { standardDeck } from "playing-card-deck-generator";
+const {
+  default: { singleDeckGame }
+} = require("blackjack-dealer-logic");
 
-const gameTable = new Table(new User(), new Dealer(standardDeck));
+singleDeckGame.deal();
 
-// index.singleDeckGame.deal();
-gameTable.deal();
+const userHand = singleDeckGame.getUserHand();
 
-console.log(gameTable.getUserHand());
+generateCard(userHand.getCards()[0]);
+generateCard(userHand.getCards()[1]);
 
-const playingCard = document.createElement("section");
-playingCard.classList.add("playing-card");
+function generateCard(card) {
+  const playingCard = document.createElement("section");
+  playingCard.classList.add("playing-card");
 
-const valueContainer = document.createElement("section");
-valueContainer.classList.add("value-container");
+  const valueContainer = document.createElement("section");
+  valueContainer.classList.add("value-container");
 
-const value = document.createElement("span");
-value.classList.add("value");
+  const value = document.createElement("span");
+  value.classList.add("value");
+  value.textContent = card.getValue();
 
-const suit = document.createElement("span");
-suit.classList.add("suit");
+  const suit = document.createElement("span");
+  suit.classList.add("suit");
+  suit.textContent = card.getSuit();
 
-valueContainer.append(value);
-valueContainer.append(suit);
-playingCard.append(valueContainer);
+  valueContainer.append(value);
+  valueContainer.append(suit);
+  playingCard.append(valueContainer);
 
-const table = document.querySelector(".table");
-table.append(playingCard);
+  const table = document.querySelector(".table");
+  table.append(playingCard);
+}

@@ -25,12 +25,16 @@ html {
   border-radius: 0.5rem;
   display: flex;
   height: 8rem;
+  margin: 0.5rem;
   padding: 1rem;
   width: 6rem;
 }
 
 .table {
+  align-items: center;
   background-color: var(--green);
+  display: flex;
+  justify-content: center;
   height: 20rem;
 }
 
