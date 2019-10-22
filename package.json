@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "blackjack-dealer-logic": "^1.1.4",
-    "global": "^4.4.0",
-    "yarn": "^1.19.1"
+    "playing-card-deck-generator": "^2.0.1"
   }
 }

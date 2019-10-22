@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  --dark: #011;
+  --green: green;
+  --light: #efefef;
+  --red: red;
+
+  color: var(--dark);
+  font: 20px/1 sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 30rem;
+  width: 90%;
+}
+
+.playing-card {
+  background-color: var(--light);
+  border-radius: 0.5rem;
+  display: flex;
+  height: 8rem;
+  padding: 1rem;
+  width: 6rem;
+}
+
+.table {
+  background-color: var(--green);
+  height: 20rem;
+}
+
+.value-container {
+  align-items: center;
+  border: 1px solid var(--red);
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+}
