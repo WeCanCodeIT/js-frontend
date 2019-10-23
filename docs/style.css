@@ -20,6 +20,12 @@ html {
   width: 90%;
 }
 
+.hit {
+  background-color: transparent;
+  border: 2px solid var(--dark);
+  padding: 0.5rem 1rem;
+}
+
 .playing-card {
   background-color: var(--light);
   border-radius: 0.5rem;

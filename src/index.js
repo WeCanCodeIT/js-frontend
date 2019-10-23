@@ -1,33 +1,24 @@
 const {
   default: { singleDeckGame }
 } = require("blackjack-dealer-logic");
+const Dom = require("./utils/Dom");
 
 singleDeckGame.deal();
 
+const dealerHand = singleDeckGame.getDealerHand();
 const userHand = singleDeckGame.getUserHand();
 
-generateCard(userHand.getCards()[0]);
-generateCard(userHand.getCards()[1]);
+Dom.renderCards(dealerHand.getCards(), document.querySelector(".dealer"));
+Dom.renderCards(userHand.getCards(), document.querySelector(".user"));
 
-function generateCard(card) {
-  const playingCard = document.createElement("section");
-  playingCard.classList.add("playing-card");
+// Button stuff
+const hitButton = document.querySelector(".hit");
 
-  const valueContainer = document.createElement("section");
-  valueContainer.classList.add("value-container");
-
-  const value = document.createElement("span");
-  value.classList.add("value");
-  value.textContent = card.getValue();
-
-  const suit = document.createElement("span");
-  suit.classList.add("suit");
-  suit.textContent = card.getSuit();
-
-  valueContainer.append(value);
-  valueContainer.append(suit);
-  playingCard.append(valueContainer);
-
-  const table = document.querySelector(".table");
-  table.append(playingCard);
-}
+hitButton.addEventListener("click", () => {
+  singleDeckGame.hitUser();
+  document.querySelector(".user").innerHTML = "";
+  Dom.renderCards(
+    singleDeckGame.getUserHand().getCards(),
+    document.querySelector(".user")
+  );
+});
