@@ -6,14 +6,22 @@ describe("Dom", () => {
       // Arrange
       const testButton = document.createElement("button");
       testButton.classList.add("btn--test");
+
+      const testParagraph = document.createElement("p")
+      testParagraph.classList.add("p--test")
+      testParagraph.textContent = "Original text"
+
       document.body.append(testButton);
+      document.body.append(testParagraph)
 
       // Act
-      Dom.addClickEventToButton(".btn--test", () => {});
+      Dom.addClickEventToButton(".btn--test", () => {
+        testParagraph.textContent = "New text"
+      });
       testButton.click();
 
       // Assert
-      expect(testButton).toHaveBeenClicked();
+      expect(testParagraph.textContent).toBe("New text");
     });
   });
 });
