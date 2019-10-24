@@ -14,16 +14,28 @@ html {
   font: 20px/1 sans-serif;
 }
 
+.btn {
+  background-color: transparent;
+  border: 2px solid var(--dark);
+  padding: 0.5rem 1rem;
+}
+
 .container {
   margin: 0 auto;
   max-width: 30rem;
   width: 90%;
 }
 
-.hit {
-  background-color: transparent;
-  border: 2px solid var(--dark);
-  padding: 0.5rem 1rem;
+.dealer, .user {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
 }
 
 .playing-card {
@@ -40,8 +52,9 @@ html {
   align-items: center;
   background-color: var(--green);
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  height: 20rem;
+  padding: 1rem;
 }
 
 .value-container {
