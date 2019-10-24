@@ -1,4 +1,13 @@
 module.exports = {
+  addClickEventToButton(identifier, callback) {
+    const button = document.querySelector(identifier);
+    button.addEventListener("click", callback);
+  },
+  disableActionButtons() {
+    const actionsContainer = document.querySelector(".actions");
+    const actionButtons = actionsContainer.querySelectorAll("button");
+    actionButtons.forEach(button => button.setAttribute("disabled", "true"));
+  },
   generateCard(card) {
     const playingCard = document.createElement("section");
     playingCard.classList.add("playing-card");
@@ -24,5 +33,11 @@ module.exports = {
     cardsArray.forEach(card => {
       containerElement.append(this.generateCard(card));
     });
+  },
+  standEvent(singleDeckGame) {
+    singleDeckGame.standUser();
+    singleDeckGame.evaluateUser();
+
+    this.disableActionButtons();
   }
 };

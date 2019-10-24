@@ -26,7 +26,8 @@ html {
   width: 90%;
 }
 
-.dealer, .user {
+.dealer,
+.user {
   display: flex;
   flex-wrap: wrap;
 }
@@ -64,4 +65,10 @@ html {
   justify-content: center;
   padding: 1rem;
   width: 100%;
+}
+
+/* Attribute Styles */
+
+[disabled="true"] {
+  border-color: red;
 }

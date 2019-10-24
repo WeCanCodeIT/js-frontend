@@ -4,17 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --content-base docs/ --open --hot"
+    "start": "webpack-dev-server --mode development --content-base docs/ --open --hot",
+    "test": "jest --watchAll --colors"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^6.5.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
   },
   "dependencies": {
     "blackjack-dealer-logic": "^1.1.4",
+    "jest": "^24.9.0",
     "playing-card-deck-generator": "^2.0.1"
   }
 }
