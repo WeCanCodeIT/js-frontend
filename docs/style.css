@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  --dark: #011;
+  --green: green;
+  --light: #efefef;
+  --red: red;
+
+  color: var(--dark);
+  font: 20px/1 sans-serif;
+}
+
+.btn {
+  background-color: transparent;
+  border: 2px solid var(--dark);
+  padding: 0.5rem 1rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 30rem;
+  width: 90%;
+}
+
+.dealer,
+.user {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.playing-card {
+  background-color: var(--light);
+  border-radius: 0.5rem;
+  display: flex;
+  height: 8rem;
+  margin: 0.5rem;
+  padding: 1rem;
+  width: 6rem;
+}
+
+.table {
+  align-items: center;
+  background-color: var(--green);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.value-container {
+  align-items: center;
+  border: 1px solid var(--red);
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+}
+
+/* Attribute Styles */
+
+[disabled="true"] {
+  border-color: red;
+}
