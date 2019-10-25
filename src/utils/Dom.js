@@ -3,10 +3,26 @@ module.exports = {
     const button = document.querySelector(identifier);
     button.addEventListener("click", callback);
   },
-  addRestartButtonEventListener() {
+  addRestartButtonEventListener(singleDeckGame) {
     document.body.addEventListener("click", event => {
       if (event.target.classList.contains("play-again")) {
         // TODO finish current hand and start a new one
+        singleDeckGame.resetPlayers();
+
+        const resultContainer = document.querySelector(".result");
+        resultContainer.innerHTML = "";
+
+        const userContainer = document.querySelector(".user");
+        userContainer.innerHTML = "";
+
+        const dealerContainer = document.querySelector(".dealer");
+        dealerContainer.innerHTML = "";
+
+        const actionsContainer = document.querySelector(".actions");
+        const actionButtons = actionsContainer.querySelectorAll("button");
+        actionButtons.forEach(button => button.removeAttribute("disabled"));
+
+        this.startGameLoop(singleDeckGame);
       }
     });
   },
@@ -138,10 +154,11 @@ module.exports = {
 
     resultContainer.append(restartButton);
 
-    this.addRestartButtonEventListener();
+    this.addRestartButtonEventListener(singleDeckGame);
 
     switch (singleDeckGame.outcome()) {
       case Result.WIN:
+        singleDeckGame.userWin();
         resultContainer.innerHTML += " You won!!!";
         break;
       case Result.PUSH:
@@ -154,5 +171,16 @@ module.exports = {
       default:
         break;
     }
+  },
+  startGameLoop(singleDeckGame) {
+    this.setInitialAnte(singleDeckGame);
+    singleDeckGame.deal();
+    this.renderHands([
+      {
+        cards: [singleDeckGame.getDealerHand().getCards()[0]],
+        container: ".dealer"
+      },
+      { cards: singleDeckGame.getUserHand().getCards(), container: ".user" }
+    ]);
   }
 };
